@@ -10,9 +10,14 @@ class AccountRepositoryImpl implements AccountRepository {
   Future<User?> getProfile() async {
     await Future.delayed(const Duration(seconds: 1));
     final userAsString = await rootBundle.loadString('assets/jsons/user.json');
-    final json=  Map<String, dynamic>.from(
+    final json = Map<String, dynamic>.from(
       jsonDecode(userAsString),
     );
-    return User.fromJson(json);
+    return User(
+      id: json['id'],
+      username: json['username'],
+      age: json['age'],
+    );
+    // return User.fromJson(json);
   }
 }

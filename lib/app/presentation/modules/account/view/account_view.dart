@@ -46,14 +46,17 @@ class _AccountViewState extends State<AccountView> {
                     onTap: () {
                       setState(() {
                         _user = _user!.copyWith(
+                          id: 12345,
+                          age: null,
                           username: DateTime.now().toString(),
                         );
                       });
                     } ,
-                    child: Image.network(
-                      _user!.avatar,
+                    child:  Text('${_user!.age}'),
+                    // child: Image.network(
+                    //   _user!.avatar,
                       
-                    ),
+                    // ),
                   )
                 ],
               )

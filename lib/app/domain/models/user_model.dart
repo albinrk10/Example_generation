@@ -1,54 +1,21 @@
-import 'package:json_annotation/json_annotation.dart';
-part 'user_model.g.dart';
+// import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-@JsonSerializable(createToJson: false)
-class User {
-  final int id;
+// part 'user_model.g.dart';
+part 'user_model.freezed.dart';
 
-  final String username;
-
-  // @JsonKey(fromJson: _avatarFromJson)
-  @JsonKey(readValue: _readAvatar)
-  final String avatar;
-
-  final List<Occupation> occupations;
-
-  User({
-    required this.id,
-    required this.username,
-    required this.avatar,
-    required this.occupations,
-  });
-
-  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
-
-  User copyWith(
-          {int? id,
-          String? username,
-          String? avatar,
-          List<Occupation>? occupations}) =>
-      User(
-        id: id ?? this.id,
-        username: username ?? this.username,
-        avatar: avatar ?? this.avatar,
-        occupations: occupations ?? this.occupations,
-      );
-}
-
-String _readAvatar(Map json, String key) {
-  return json['avatar']['tmdb']['avatar_path'] as String;
+@freezed
+class User with _$User {
+  factory User({
+    required int id,
+    required String username,
+   required int? age,
+  }) = _User;
 }
 
 
-@JsonSerializable(createToJson: false)
-class Occupation {
-  final int id;
-  final String name;
+// String _readAvatar(Map json, String key) {
+//   return json['avatar']['tmdb']['avatar_path'] as String;
+// }
 
-  Occupation({
-    required this.id,
-    required this.name,
-  });
-  factory Occupation.fromJson(Map<String, dynamic> json) =>
-      _$OccupationFromJson(json);
-}
+
