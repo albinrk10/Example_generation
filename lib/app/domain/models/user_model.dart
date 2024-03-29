@@ -5,7 +5,7 @@ part 'user_model.freezed.dart';
 
 @freezed
 class User with _$User {
-  factory User({
+  const factory User({
     required int id,
     required String username,
     required int? age,
@@ -18,12 +18,13 @@ class User with _$User {
 
 @freezed
 class Occupation with _$Occupation {
-  factory Occupation({
+  const factory Occupation({
     required int id,
     required String name,
   }) = _Occupation;
 
-  factory Occupation.fromJson(Map<String, dynamic> json) => _$OccupationFromJson(json);
+  factory Occupation.fromJson(Map<String, dynamic> json) =>
+      _$OccupationFromJson(json);
 }
 
 String _readAvatar(Map json, String key) {

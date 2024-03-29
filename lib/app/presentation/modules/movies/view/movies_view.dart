@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../domain/models/movie_model.dart';
@@ -37,8 +38,17 @@ class _MoviesViewState extends State<MoviesView> {
               return GridView.builder(
                 itemBuilder: (_, index) {
                   final movie = movies[index];
-                  return Image.network(
-                    movie.posterPath,
+                  return Column(
+                    children: [
+                      Expanded(
+                        child: Image.network(
+                        movie.posterPath,
+                                            ),
+                      ),
+                      Text(
+                        movie.formatteDate(),
+                      ),
+                    ],
                   );
                 },
                 itemCount: movies.length,

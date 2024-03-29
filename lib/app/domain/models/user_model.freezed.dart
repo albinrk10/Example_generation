@@ -148,7 +148,7 @@ class __$$UserImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$UserImpl implements _User {
-  _$UserImpl(
+  const _$UserImpl(
       {required this.id,
       required this.username,
       required this.age,
@@ -215,7 +215,7 @@ class _$UserImpl implements _User {
 }
 
 abstract class _User implements User {
-  factory _User(
+  const factory _User(
       {required final int id,
       required final String username,
       required final int? age,
@@ -335,7 +335,7 @@ class __$$OccupationImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$OccupationImpl implements _Occupation {
-  _$OccupationImpl({required this.id, required this.name});
+  const _$OccupationImpl({required this.id, required this.name});
 
   factory _$OccupationImpl.fromJson(Map<String, dynamic> json) =>
       _$$OccupationImplFromJson(json);
@@ -378,8 +378,8 @@ class _$OccupationImpl implements _Occupation {
 }
 
 abstract class _Occupation implements Occupation {
-  factory _Occupation({required final int id, required final String name}) =
-      _$OccupationImpl;
+  const factory _Occupation(
+      {required final int id, required final String name}) = _$OccupationImpl;
 
   factory _Occupation.fromJson(Map<String, dynamic> json) =
       _$OccupationImpl.fromJson;

@@ -1,33 +1,24 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'movie_model.freezed.dart';
 part 'movie_model.g.dart';
 
-@JsonSerializable(createToJson: false)
-class Movie {
-  final int id;
-  final String title;
-  final String overview;
+@freezed
+class Movie with _$Movie {
+  const Movie._();
+  const factory Movie({
+    required int id,
+    required String title,
+    required String overview,
+    @JsonKey(name: 'poster_path') required String posterPath,
+    @JsonKey(name: 'release_date') required DateTime releaseDate,
+    @JsonKey(name: 'vote_average') required double voteAverage,
+    @JsonKey(name: 'genre_ids') required List<int> genreIds,
+  }) = _Movie;
 
-  @JsonKey(name: 'poster_path')
-  final String posterPath;
-
-  @JsonKey(name: 'release_date')
-  final DateTime releaseDate;
-
-  @JsonKey(name: 'vote_average')
-  final double voteAverage;
-
-  @JsonKey(name: 'genre_ids')
-  final List<int> genreIds;
-
-  Movie({
-    required this.id,
-    required this.title,
-    required this.overview,
-    required this.posterPath,
-    required this.releaseDate,
-    required this.voteAverage,
-    required this.genreIds,
-  });
+  String formatteDate() {
+    return '${releaseDate.day}/${releaseDate.month}';
+  }
 
   factory Movie.fromJson(Map<String, dynamic> json) => _$MovieFromJson(json);
 }
