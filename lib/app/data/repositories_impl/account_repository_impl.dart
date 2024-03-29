@@ -13,11 +13,7 @@ class AccountRepositoryImpl implements AccountRepository {
     final json = Map<String, dynamic>.from(
       jsonDecode(userAsString),
     );
-    return User(
-      id: json['id'],
-      username: json['username'],
-      age: json['age'],
-    );
-    // return User.fromJson(json);
+   
+    return User.fromJson(json);
   }
 }

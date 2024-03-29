@@ -52,12 +52,13 @@ class _AccountViewState extends State<AccountView> {
                         );
                       });
                     } ,
-                    child:  Text('${_user!.age}'),
-                    // child: Image.network(
-                    //   _user!.avatar,
+                    // child:  Text('${_user!.age}'),
+                    child: Image.network(
+                      _user!.avatar,
                       
-                    // ),
-                  )
+                    ),
+                  ),
+                  Text(_user!.occupations.toString()),
                 ],
               )
             : const CircularProgressIndicator(),
