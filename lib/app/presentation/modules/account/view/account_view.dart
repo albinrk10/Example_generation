@@ -41,9 +41,7 @@ class _AccountViewState extends State<AccountView> {
                 children: [
                   Text(_user!.id.toString()),
                   Text(_user!.username),
-                  Text(_user!.age.toString()),
-                  Text(_user!.hash),
-                  Text(_user!.birthday.toString()),
+
                   GestureDetector(
                     onTap: () {
                       setState(() {

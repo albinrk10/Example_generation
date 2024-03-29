@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../domain/models/movie.dart';
+import '../../../../domain/models/movie_model.dart';
 import '../../../../domain/repositories/movies_repository.dart';
 
 class MoviesView extends StatefulWidget {
@@ -49,7 +49,7 @@ class _MoviesViewState extends State<MoviesView> {
             }
 
             return Text(
-              snapshot.error.toString(),
+              snapshot.stackTrace.toString(),
             );
           },
         ),

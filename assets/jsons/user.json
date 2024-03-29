@@ -8,13 +8,21 @@
       "avatar_path": "https://image.tmdb.org/t/p/w500/jOl2OWDB662dKreKY2FoYAh1mg3.jpg"
     }
   },
-  "_id": 15160447,
+  "id": 15160447,
   "iso_639_1": "es",
   "iso_3166_1": "US",
   "name": "",
   "include_adult": false,
   "username": "meedu",
-  "age": 25,
-  "birthday": "1996-12-28",
-  "type": 1
+  "occupations":[
+    {
+    "id": 123,
+    "name": "Flutter dev"
+  },
+  {
+    "id": 124,
+    "name": "Singer"
+  }
+]
+
 }
